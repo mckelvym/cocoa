@@ -11,6 +11,35 @@
 
 @implementation LotteryEntry
 
+- (id)init
+{
+	return [self initWithEntryDate:[NSCalendarDate calendarDate]];
+	
+	// OR
+	// [self dealloc];
+	// @throw [NSException exceptionWIthName:@"Bad init call" reason:@"Dumb" userInfo:nil];
+	// return nil;
+}
+
+- (id)initWithEntryDate:(NSCalendarDate *)date
+{
+	if (![super init])
+		return nil;
+	[self prepareRandomNumbers];
+	NSAssert(date != nil, @"Date argument must be non-nil");
+	entryDate = date;
+	return self;	
+}
+
+- (NSString *)description
+{
+	NSString * description = [[NSString alloc] initWithFormat:@"%@: %d, %d", 
+							  [entryDate descriptionWithCalendarFormat:@"%b %d %Y"],
+							  firstNumber, 
+							  secondNumber];
+	return description;
+}
+
 - (void)prepareRandomNumbers
 {
 	firstNumber = random() % 100 + 1;
@@ -35,23 +64,6 @@
 - (int)getSecondNumber
 {
 	return secondNumber;
-}
-
-- (NSString *)description
-{
-	NSString * description = [[NSString alloc] initWithFormat:@"%@: %d, %d", 
-							  [entryDate descriptionWithCalendarFormat:@"%b %d %Y"],
-							  firstNumber, 
-							  secondNumber];
-	return description;
-}
-
-- (id)init
-{
-	if (![super init])
-		return nil;
-	[self prepareRandomNumbers];
-	return self;
 }
 
 @end

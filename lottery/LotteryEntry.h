@@ -14,6 +14,10 @@
 	int firstNumber;
 	int secondNumber;
 }
+/**
+ * Designated initializer.
+ */
+- (id)initWithEntryDate:(NSCalendarDate *)date;
 - (void)prepareRandomNumbers;
 - (void)setEntryDate:(NSCalendarDate *)date;
 - (NSCalendarDate *)getEntryDate;
