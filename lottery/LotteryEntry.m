@@ -46,4 +46,12 @@
 	return description;
 }
 
+- (id)init
+{
+	if (![super init])
+		return nil;
+	[self prepareRandomNumbers];
+	return self;
+}
+
 @end
