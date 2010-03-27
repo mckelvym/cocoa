@@ -27,7 +27,7 @@ int main (int argc, const char * argv[]) {
 		NSLog(@"Entry: %@", entry);
 	}
 	
-    NSLog(@"Hello, World!");
+    NSLog(@"Hello, World...!");
     [pool drain];
     return 0;
 }
