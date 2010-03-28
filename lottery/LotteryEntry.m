@@ -37,6 +37,7 @@
 							  [entryDate descriptionWithCalendarFormat:@"%b %d %Y"],
 							  firstNumber, 
 							  secondNumber];
+	[description autorelease];							
 	return description;
 }
 
