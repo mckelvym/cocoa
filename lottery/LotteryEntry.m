@@ -27,6 +27,7 @@
 		return nil;
 	[self prepareRandomNumbers];
 	NSAssert(date != nil, @"Date argument must be non-nil");
+	[date retain];
 	entryDate = date;
 	return self;	
 }
@@ -39,6 +40,13 @@
 							  secondNumber];
 	[description autorelease];							
 	return description;
+}
+
+- (void)dealloc 
+{
+	NSLog(@"deallocing %@", self); 
+	[entryDate release]; 
+	[super dealloc];
 }
 
 - (void)prepareRandomNumbers

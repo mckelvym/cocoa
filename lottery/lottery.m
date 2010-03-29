@@ -20,14 +20,21 @@ int main (int argc, const char * argv[]) {
 		//[entry prepareRandomNumbers];
 		//[entry setEntryDate:iWeeksFromNow];
 		[array addObject:entry];
+		[entry release];
+		[iWeeksFromNow release];
 	}
+	[dateNow release]; // done with it, decrease retain count;
+	dateNow = nil;
 	
 	for (LotteryEntry * entry in array)
 	{
 		NSLog(@"Entry: %@", entry);
 	}
+	[array release];
+	array = nil;
 	
     NSLog(@"Hello, World...!");
+	NSLog(@"GC = %@", [NSGarbageCollector defaultCollector]);
     [pool drain];
     return 0;
 }
