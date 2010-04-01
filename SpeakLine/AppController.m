@@ -18,10 +18,21 @@
 	NSLog(@"init");
 	
 	speechSynth = [[NSSpeechSynthesizer alloc] initWithVoice:nil];
-	
+	[stopButton setEnabled:false];
+	[speechSynth setDelegate:self];
 	[speechSynth startSpeakingString:@"What the frack?"];
 	
 	return self;
+}
+
+- (void)speechSynthesizer:(NSSpeechSynthesizer *)sender didFinishSpeaking:(BOOL)finishedSpeaking
+{
+	if (finishedSpeaking)
+	{
+		[stopButton setEnabled:NO];
+		[speakButton setEnabled:YES];
+	}
+	NSLog(@"Done speaking.");
 }
 
 - (IBAction)sayIt:(id)sender;
@@ -32,6 +43,8 @@
 		return;
 	
 	[speechSynth startSpeakingString:toSay];
+	[stopButton setEnabled:YES];
+	[speakButton setEnabled:NO];
 	NSLog(@"Saying %@", toSay);
 }
 
