@@ -1,0 +1,78 @@
+// !$*UTF8*$!
+{
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 4D03EE1C116916D30097BADE /* WindowDelegate */;
+		activeTarget = 8D1107260486CEB800E47090 /* WindowDelegate */;
+		addToTargets = (
+			8D1107260486CEB800E47090 /* WindowDelegate */,
+		);
+		codeSenseManager = 4D03EE20116916F10097BADE /* Code sense */;
+		executables = (
+			4D03EE1C116916D30097BADE /* WindowDelegate */,
+		);
+		perUserDictionary = {
+			PBXPerProjectTemplateStateSaveDate = 292099795;
+			PBXWorkspaceStateSaveDate = 292099795;
+		};
+		sourceControlManager = 4D03EE1F116916F10097BADE /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	4D03EE1C116916D30097BADE /* WindowDelegate */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = WindowDelegate;
+		sourceDirectories = (
+		);
+	};
+	4D03EE1F116916F10097BADE /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryName = desktop;
+		};
+	};
+	4D03EE20116916F10097BADE /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	4D03EE23116916FD0097BADE /* AppController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 406}}";
+			sepNavSelRange = "{172, 0}";
+			sepNavVisRange = "{0, 248}";
+		};
+	};
+	4D03EE24116916FD0097BADE /* AppController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 574}}";
+			sepNavSelRange = "{298, 0}";
+			sepNavVisRange = "{174, 357}";
+		};
+	};
+	8D1107260486CEB800E47090 /* WindowDelegate */ = {
+		activeExec = 0;
+		executables = (
+			4D03EE1C116916D30097BADE /* WindowDelegate */,
+		);
+	};
+}
