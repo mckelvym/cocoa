@@ -18,21 +18,59 @@
 	NSLog(@"init");
 	
 	speechSynth = [[NSSpeechSynthesizer alloc] initWithVoice:nil];
-	[stopButton setEnabled:false];
+	voiceList = [[NSSpeechSynthesizer availableVoices] retain];
+	[stopButton setEnabled:NO];
 	[speechSynth setDelegate:self];
-	[speechSynth startSpeakingString:@"What the frack?"];
+	
+	//[speechSynth startSpeakingString:@"What the frack?"];
 	
 	return self;
 }
 
-- (void)speechSynthesizer:(NSSpeechSynthesizer *)sender didFinishSpeaking:(BOOL)finishedSpeaking
+- (void)awakeFromNib
 {
-	if (finishedSpeaking)
-	{
-		[stopButton setEnabled:NO];
-		[speakButton setEnabled:YES];
-	}
+	// When the table view appears on screen, the default voice 
+	// should be selected 
+	NSString *defaultVoice = [NSSpeechSynthesizer defaultVoice]; 
+	int defaultRow = [voiceList indexOfObject:defaultVoice]; 
+	[tableView selectRow:defaultRow byExtendingSelection:NO]; 
+	[tableView scrollRowToVisible:defaultRow];
+}
+
+- (void)speechSynthesizer:(NSSpeechSynthesizer *)sender 
+	didFinishSpeaking:(BOOL)finishedSpeaking
+{
+	[tableView setEnabled:YES];
+	[stopButton setEnabled:NO];
+	[speakButton setEnabled:YES];
 	NSLog(@"Done speaking.");
+}
+
+- (int)numberOfRowsInTableView:(NSTableView *)tv 
+{
+	return [voiceList count];
+}
+
+- (id)tableView:(NSTableView *)tv 
+	objectValueForTableColumn:(NSTableColumn *)tableColumn
+	row:(int)row
+{ 
+	NSString *v = [voiceList objectAtIndex:row]; 
+	NSDictionary *dict = [NSSpeechSynthesizer attributesForVoice:v]; 
+	return [dict objectForKey:NSVoiceName];
+}
+
+- (void)tableViewSelectionDidChange:(NSNotification *)notification 
+{
+	int row = [tableView selectedRow]; 
+	if (row == -1) 
+	{
+		return;
+	} 
+	
+	NSString *selectedVoice = [voiceList objectAtIndex:row]; 
+	[speechSynth setVoice:selectedVoice]; 
+	NSLog(@"new voice = %@", selectedVoice);
 }
 
 - (IBAction)sayIt:(id)sender;
@@ -42,6 +80,7 @@
 	if ([toSay length] == 0)
 		return;
 	
+	[tableView setEnabled:NO];
 	[speechSynth startSpeakingString:toSay];
 	[stopButton setEnabled:YES];
 	[speakButton setEnabled:NO];
