@@ -27,13 +27,20 @@
 	return self;
 }
 
+- (BOOL)respondsToSelector:(SEL)aSelector 
+{
+	NSString *methodName = NSStringFromSelector(aSelector); 
+	NSLog(@"respondsToSelector: %@", methodName); 
+	return [super respondsToSelector:aSelector];
+}
+
 - (void)awakeFromNib
 {
 	// When the table view appears on screen, the default voice 
 	// should be selected 
 	NSString *defaultVoice = [NSSpeechSynthesizer defaultVoice]; 
 	int defaultRow = [voiceList indexOfObject:defaultVoice]; 
-	[tableView selectRow:defaultRow byExtendingSelection:NO]; 
+	[tableView selectRow:defaultRow byExtendingSelection:NO]; // TODO Deprecated
 	[tableView scrollRowToVisible:defaultRow];
 }
 
