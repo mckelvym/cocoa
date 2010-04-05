@@ -1,0 +1,60 @@
+// !$*UTF8*$!
+{
+	2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 4DD4E39B11698976000DE007 /* RaiseMan */;
+		activeTarget = 8D15AC270486D014006FF6A4 /* RaiseMan */;
+		codeSenseManager = 4DD4E3A8116989B0000DE007 /* Code sense */;
+		executables = (
+			4DD4E39B11698976000DE007 /* RaiseMan */,
+		);
+		perUserDictionary = {
+			PBXPerProjectTemplateStateSaveDate = 292129142;
+			PBXWorkspaceStateSaveDate = 292129142;
+		};
+		sourceControlManager = 4DD4E3A7116989B0000DE007 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	4DD4E39B11698976000DE007 /* RaiseMan */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = RaiseMan;
+		sourceDirectories = (
+		);
+	};
+	4DD4E3A7116989B0000DE007 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryName = desktop;
+		};
+	};
+	4DD4E3A8116989B0000DE007 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	8D15AC270486D014006FF6A4 /* RaiseMan */ = {
+		activeExec = 0;
+		executables = (
+			4DD4E39B11698976000DE007 /* RaiseMan */,
+		);
+	};
+}
