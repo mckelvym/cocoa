@@ -8,6 +8,7 @@
 
 
 #import <Cocoa/Cocoa.h>
+@class Person;
 
 @interface MyDocument : NSDocument
 {
@@ -15,5 +16,7 @@
 }
 
 - (void)setEmployees:(NSMutableArray *)a;
+- (void)insertObject:(Person *)p inEmployeesAtIndex:(int)index;
+- (void)removeObjectFromEmployeesAtIndex:(int)index;
 
 @end

@@ -6,6 +6,7 @@
 //  Copyright __MyCompanyName__ 2010 . All rights reserved.
 //
 
+#import "Person.h"
 #import "MyDocument.h"
 
 @implementation MyDocument
@@ -69,14 +70,99 @@
 	[super dealloc];
 }
 
+- (void)changeKeyPath:(NSString *)keyPath
+	ofObject:(id)obj 
+	toValue:(id)newValue
+{
+	[obj setValue:newValue forKeyPath:keyPath];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+ofObject:(id)object
+change:(NSDictionary *)change
+context:(void *)context
+{
+	NSUndoManager *undo = [self undoManager];
+	id oldValue = [change objectForKey:NSKeyValueChangeOldKey];
+	
+	if (oldValue == [NSNull null])
+	{
+		oldValue = nil;
+	}
+	
+	NSLog(@"oldValue = %@", oldValue);
+	[[undo prepareWithInvocationTarget:self] changeKeyPath:keyPath 
+												  ofObject:object toValue:oldValue];
+	
+	[undo setActionName:@"Edit"];
+}
+
 - (void)setEmployees:(NSMutableArray *)a
 {
 	if (a == employees)
 		return;
 	
+	for (Person * p in employees)
+		[self stopObservingPerson:p];
+	
 	[a retain];
 	[employees release];
 	employees = a;
+	
+	for (Person * p in employees)
+		[self startObservingPerson:p];
+}
+
+- (void)insertObject:(Person *)p
+	inEmployeesAtIndex:(int)index
+{
+	NSLog(@"adding %@ to %@", p, employees);
+	NSUndoManager *undo = [self undoManager];
+	[[undo prepareWithInvocationTarget:self] removeObjectFromEmployeesAtIndex:index];
+	
+	if (![undo isUndoing])
+	{
+		[undo setActionName:@"Insert person"];
+	}
+	
+	[self startObservingPerson:p];
+	[employees insertObject:p atIndex:index];
+}
+
+- (void)removeObjectFromEmployeesAtIndex:(int)index
+{
+	Person *p = [employees objectAtIndex:index];
+	NSLog(@"removing %@ from %@", p, employees);
+	
+	NSUndoManager *undo = [self undoManager];
+	[[undo prepareWithInvocationTarget:self] insertObject:p inEmployeesAtIndex:index];
+	
+	if (![undo isUndoing])
+	{
+		[undo setActionName:@"Remove person"];
+	}
+	
+	[self stopObservingPerson:p];
+	[employees removeObject:p];
+}
+
+- (void)startObservingPerson:(Person *)p
+{
+	[p addObserver:self	
+		forKeyPath:@"personName" 
+		   options:NSKeyValueObservingOptionOld 
+		   context:NULL];
+	
+	[p addObserver:self	
+		forKeyPath:@"expectedRaise" 
+		   options:NSKeyValueObservingOptionOld 
+		   context:NULL];
+}
+
+- (void)stopObservingPerson:(Person *)p
+{
+	[p removeObserver:self forKeyPath:@"personName"];
+	[p removeObserver:self forKeyPath:@"expectedRaise"];
 }
 
 @end
