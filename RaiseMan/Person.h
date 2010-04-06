@@ -13,6 +13,6 @@
 	float expectedRaise;
 }
 @property (readwrite, copy) NSString * personName;
-@property (readwrite) float expectedRaise;s
+@property (readwrite) float expectedRaise;
 
 @end
