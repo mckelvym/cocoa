@@ -97,6 +97,50 @@ context:(void *)context
 	[undo setActionName:@"Edit"];
 }
 
+- (IBAction)createEmployee:(id)sender
+{
+	NSWindow * w = [tableView window];
+	
+	// Try to end any editing taking place.
+	BOOL editingEnded = [w makeFirstResponder:w];
+	if (!editingEnded)
+	{
+		return;
+	}
+	
+	NSUndoManager * undo = [self undoManager];
+	
+	// Has an edit occurred already in this event?
+	if ([undo groupingLevel])
+	{
+		// Close the last group
+		[undo endUndoGrouping];
+		// Open a new group
+		[undo beginUndoGrouping];
+	}
+	
+	// Create the person object
+	Person * p = [employeeController newObject];
+	
+	// Add it to the content array of 'employeeController'
+	[employeeController addObject:p];
+	[p release];
+	
+	// Resort
+	[employeeController rearrangeObjects];
+	
+	// Get the sorted array
+	NSArray * a = [employeeController arrangedObjects];
+	
+	// Find the object just added
+	int row = [a indexOfObjectIdenticalTo:p];
+	NSLog(@"Starting to edit %@ in row %d", p, row);
+	
+	// Begin the edit in the first column
+	[tableView editColumn:0	
+					  row:row withEvent:nil select:YES];
+}
+
 - (void)setEmployees:(NSMutableArray *)a
 {
 	if (a == employees)
