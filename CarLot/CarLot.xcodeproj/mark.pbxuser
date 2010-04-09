@@ -1,0 +1,59 @@
+// !$*UTF8*$!
+{
+	2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 4DBE2368116FA91100F88600 /* CarLot */;
+		activeTarget = 8D15AC270486D014006FF6A4 /* CarLot */;
+		codeSenseManager = 4DBE2372116FA92F00F88600 /* Code sense */;
+		executables = (
+			4DBE2368116FA91100F88600 /* CarLot */,
+		);
+		perUserDictionary = {
+			PBXPerProjectTemplateStateSaveDate = 292530449;
+			PBXWorkspaceStateSaveDate = 292530449;
+		};
+		sourceControlManager = 4DBE2371116FA92F00F88600 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	4DBE2368116FA91100F88600 /* CarLot */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = CarLot;
+		sourceDirectories = (
+		);
+	};
+	4DBE2371116FA92F00F88600 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	4DBE2372116FA92F00F88600 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	8D15AC270486D014006FF6A4 /* CarLot */ = {
+		activeExec = 0;
+		executables = (
+			4DBE2368116FA91100F88600 /* CarLot */,
+		);
+	};
+}
