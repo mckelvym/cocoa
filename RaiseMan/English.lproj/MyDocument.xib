@@ -481,11 +481,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">add:</string>
-						<reference key="source" ref="162550917"/>
+						<string key="label">createEmployee:</string>
+						<reference key="source" ref="512844837"/>
 						<reference key="destination" ref="544761927"/>
 					</object>
-					<int key="connectionID">100054</int>
+					<int key="connectionID">100055</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -703,8 +703,8 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{151, 387}, {507, 270}}</string>
-					<string>{{151, 387}, {507, 270}}</string>
+					<string>{{176, 415}, {507, 270}}</string>
+					<string>{{176, 415}, {507, 270}}</string>
 					<reference ref="9"/>
 					<string>{{201, 387}, {507, 413}}</string>
 					<reference ref="9"/>
@@ -729,7 +729,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">100054</int>
+			<int key="maxID">100055</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

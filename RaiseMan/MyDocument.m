@@ -143,6 +143,7 @@ context:(void *)context
 
 - (IBAction)createEmployee:(id)sender
 {
+	NSLog(@"createEmployee of MyDocument");
 	NSWindow * w = [tableView window];
 	
 	// Try to end any editing taking place.
