@@ -21,10 +21,26 @@
 	return self;
 }
 
+- (id)initWithCoder:(NSCoder *)coder;
+{
+	[super init];
+	// [super initWithCoder:coder];
+	personName = [coder decodeObjectForKey:@"personName"];
+	expectedRaise = [coder decodeFloatForKey:@"expectedRaise"];
+	return self;
+}
+
 - (void)dealloc
 {
 	[personName release];
 	[super dealloc];
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+	// [super encodeWithCoder:coder];
+	[coder encodeObject:personName forKey:@"personName"];
+	[coder encodeFloat:expectedRaise forKey:@"expectedRaise"];
 }
 
 - (void)setNilValueForKey:(NSString *)s

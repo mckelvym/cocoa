@@ -44,11 +44,27 @@
 
     // For applications targeted for Panther or earlier systems, you should use the deprecated API -dataRepresentationOfType:. In this case you can also choose to override -fileWrapperRepresentationOfType: or -writeToFile:ofType: instead.
 
-    if ( outError != NULL ) {
-		*outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
-	}
+	[[tableView window] endEditingFor:nil];
+	
+	return [NSKeyedArchiver archivedDataWithRootObject:employees];
+    
+	//if ( outError != NULL ) {
+	//	*outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
+	//}
+	//return nil;
+}
+
+/*
+- (NSFileWrapper *)fileWrapperOfType:(NSString *)typeName error:(NSError *)error
+{
 	return nil;
 }
+
+- (BOOL)writeToURL:(NSURL *)absoluteURL ofType:(NSString *)typeName error:(NSError **)outError
+{
+	return NO;
+}
+*/
 
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
 {
@@ -58,11 +74,39 @@
     
     // For applications targeted for Panther or earlier systems, you should use the deprecated API -loadDataRepresentation:ofType. In this case you can also choose to override -readFromFile:ofType: or -loadFileWrapperRepresentation:ofType: instead.
     
-    if ( outError != NULL ) {
-		*outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
+	NSLog(@"About to read data of type %@", typeName);
+	NSMutableArray * newArray = nil;
+	
+	@try
+	{
+		newArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
 	}
+	@catch (NSException * e)
+	{
+		if (outError != NULL)
+		{
+			NSDictionary * d = [NSDictionary dictionaryWithObject:@"The data is corrupted."
+														   forKey:NSLocalizedFailureReasonErrorKey];
+			*outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:d];
+		}
+		return NO;
+	}
+	
+	[self setEmployees:newArray];
     return YES;
 }
+
+/*
+- (BOOL)readFromFileWrapper:(NSFileWrapper *)fileWrapper ofType:(NSString *)typeName error:(NSError **)outError
+{
+	return NO;
+}
+
+- (BOOL)readFromURL:(NSURL *)absoluteURL ofType:(NSString *)typeName error:(NSError **)outError
+{
+	return NO;
+}
+*/
 
 - (void)dealloc
 {
