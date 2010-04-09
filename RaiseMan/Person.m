@@ -25,8 +25,11 @@
 {
 	[super init];
 	// [super initWithCoder:coder];
+	NSLog(@"initWithCoder");
 	personName = [coder decodeObjectForKey:@"personName"];
+	NSLog(@"personName = %@", personName);
 	expectedRaise = [coder decodeFloatForKey:@"expectedRaise"];
+	NSLog(@"expectedRaise = %f", expectedRaise);
 	return self;
 }
 
@@ -39,6 +42,7 @@
 - (void)encodeWithCoder:(NSCoder *)coder
 {
 	// [super encodeWithCoder:coder];
+	NSLog(@"encoding object %@", self);
 	[coder encodeObject:personName forKey:@"personName"];
 	[coder encodeFloat:expectedRaise forKey:@"expectedRaise"];
 }
