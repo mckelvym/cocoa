@@ -191,20 +191,26 @@ context:(void *)context
 		return;
 	
 	for (Person * p in employees)
+	{
+		NSLog(@"No longer observing person %@", p);
 		[self stopObservingPerson:p];
+	}
 	
 	[a retain];
 	[employees release];
 	employees = a;
 	
 	for (Person * p in employees)
+	{
+		NSLog(@"Now observing person %@", p);
 		[self startObservingPerson:p];
+	}
 }
 
 - (void)insertObject:(Person *)p
 	inEmployeesAtIndex:(int)index
 {
-	NSLog(@"adding %@ to %@", p, employees);
+	NSLog(@"adding %@ to employees %@", p, employees);
 	NSUndoManager *undo = [self undoManager];
 	[[undo prepareWithInvocationTarget:self] removeObjectFromEmployeesAtIndex:index];
 	

@@ -16,8 +16,11 @@
 - (id)init
 {
 	[super init];
-	expectedRaise = 5;
-	personName = @"New Person";
+	NSLog(@"Person init");
+	//expectedRaise = 5.0;
+	[self setExpectedRaise:5.0];
+	personName = @"A New Person";
+	NSLog(@"Person description: %@", self);
 	return self;
 }
 
@@ -26,11 +29,23 @@
 	[super init];
 	// [super initWithCoder:coder];
 	NSLog(@"initWithCoder");
-	personName = [coder decodeObjectForKey:@"personName"];
+	[self setValue:[coder decodeObjectForKey:@"personName"] forKey:@"personName"];
+	//personName = [coder decodeObjectForKey:@"personName"];
 	NSLog(@"personName = %@", personName);
-	expectedRaise = [coder decodeFloatForKey:@"expectedRaise"];
+	[self setValue:[[NSNumber alloc] initWithFloat:[coder decodeFloatForKey:@"expectedRaise"]] 
+			forKey:@"expectedRaise"];
+	//expectedRaise = [coder decodeFloatForKey:@"expectedRaise"];
 	NSLog(@"expectedRaise = %f", expectedRaise);
 	return self;
+}
+
+- (NSString *)description
+{
+	NSString * description = [[NSString alloc] initWithFormat:@"%@, expected raise: %f", 
+							  personName,
+							  expectedRaise];
+	[description autorelease];							
+	return description;
 }
 
 - (void)dealloc
@@ -49,8 +64,9 @@
 
 - (void)setNilValueForKey:(NSString *)s
 {
+	NSLog(@"Person setting Nil Value for key %@", s);
 	if ([s isEqual:@"expectedRaise"])
-		[self setExpectedRaise:0.0];
+		[self setExpectedRaise:1.0];
 	else
 		[super setNilValueForKey:s];
 }
