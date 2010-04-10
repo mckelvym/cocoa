@@ -7,12 +7,13 @@
 //
 
 #import "PreferenceController.h"
-
+#import "AppController.h"
 
 @implementation PreferenceController
 
 NSString * const BNRTableBgColorKey = @"TableBackgroundColor";
 NSString * const BNREmptyDocKey = @"EmptyDocumentFlag";
+NSString * const BNRColorChangedNotification = @"BNRColorChanged";
 
 - (id)init
 {
@@ -49,6 +50,11 @@ NSString * const BNREmptyDocKey = @"EmptyDocumentFlag";
 	NSData * colorAsData = [NSKeyedArchiver archivedDataWithRootObject:color];
 	NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setObject:colorAsData forKey:BNRTableBgColorKey];
+	
+	NSNotificationCenter * nc = [NSNotificationCenter defaultCenter];
+	NSLog(@"Sending notification");
+	NSDictionary * d = [NSDictionary dictionaryWithObject:color forKey:@"color"];
+	[nc postNotificationName:BNRColorChangedNotification object:self userInfo:d];
 }
 
 - (IBAction)changeNewEmptyDoc:(id)sender
@@ -57,6 +63,12 @@ NSString * const BNREmptyDocKey = @"EmptyDocumentFlag";
 	NSLog(@"Checkbox state changed: %d", state);
 	NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setBool:state	forKey:BNREmptyDocKey];
+}
+
+- (IBAction)resetPreferences:(id)sender
+{
+	NSLog(@"Not resetting preferences");
+	
 }
 
 @end

@@ -10,6 +10,7 @@
 
 extern NSString * const BNRTableBgColorKey;
 extern NSString * const BNREmptyDocKey;
+extern NSString * const BNRColorChangedNotification;
 
 @interface PreferenceController : NSWindowController {
 	IBOutlet NSColorWell * colorWell;
@@ -20,5 +21,6 @@ extern NSString * const BNREmptyDocKey;
 - (BOOL)emptyDoc;
 - (IBAction)changeBackgroundColor:(id)sender;
 - (IBAction)changeNewEmptyDoc:(id)sender;
+- (IBAction)resetPreferences:(id)sender;
 
 @end

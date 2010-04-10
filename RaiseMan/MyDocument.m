@@ -20,6 +20,10 @@
         // Add your subclass-specific initialization here.
         // If an error occurs here, send a [self release] message and return nil.
 		employees = [[NSMutableArray alloc] init];
+		
+		NSNotificationCenter * nc = [NSNotificationCenter defaultCenter];
+		[nc addObserver:self selector:@selector(handleColorChange:) name:BNRColorChangedNotification object:nil];
+		NSLog(@"Registered with notification center");
     }
     return self;
 }
@@ -119,6 +123,7 @@
 - (void)dealloc
 {
 	[self setEmployees:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[super dealloc];
 }
 
@@ -266,6 +271,13 @@ context:(void *)context
 {
 	[p removeObserver:self forKeyPath:@"personName"];
 	[p removeObserver:self forKeyPath:@"expectedRaise"];
+}
+
+- (void)handleColorChange:(NSNotification *)note
+{
+	NSLog(@"Received notification: %@", note);
+	NSColor * color = [[note userInfo] objectForKey:@"color"];
+	[tableView setBackgroundColor:color];
 }
 
 @end

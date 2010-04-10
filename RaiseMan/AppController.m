@@ -28,9 +28,23 @@
 	NSLog(@"registered defaults: %@", defaultValues);
 }
 
+/*
+- (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender
+{
+	NSLog(@"applicaitonShouldOpenUntitledFile:");
+	return [[NSUserDefaults standardUserDefaults] boolForKey:BNREmptyDocKey];
+}
+*/
+
 - (void)awakeFromNib
 {
 	NSLog(@"awakeFromNib");
+}
+
+- (void)applicationDidResignActive:(NSNotification *)note
+{
+	NSLog(@"resigned active");
+	NSBeep();
 }
 
 - (IBAction)showPreferencePanel:(id)sender
