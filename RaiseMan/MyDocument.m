@@ -6,6 +6,7 @@
 //  Copyright __MyCompanyName__ 2010 . All rights reserved.
 //
 
+#import "PreferenceController.h"
 #import "Person.h"
 #import "MyDocument.h"
 
@@ -32,8 +33,15 @@
 
 - (void)windowControllerDidLoadNib:(NSWindowController *) aController
 {
-    [super windowControllerDidLoadNib:aController];
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
+	
+	NSLog(@"windowControllerDidLoadNib");
+	[super windowControllerDidLoadNib:aController];
+	NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+	NSData * colorAsData = [defaults objectForKey:BNRTableBgColorKey];
+	
+	[tableView setBackgroundColor:[NSKeyedUnarchiver unarchiveObjectWithData:colorAsData]];
+				
 }
 
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
