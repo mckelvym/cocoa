@@ -201,12 +201,18 @@ context:(void *)context
 
 - (IBAction)removeEmployee:(id)sender
 {
+	// For localization:
+	//NSString * deleteString;
+	//deleteString = [[NSBundle mainBundle] localizedStringForKey:@"DELETE" value:@"Delete?" table:nil];
+		
 	NSArray * selectedPeople = [employeeController selectedObjects];
-	NSAlert * alert = [NSAlert alertWithMessageText:@"Delete?" 
-		defaultButton:@"Delete" alternateButton:@"Cancel" otherButton:@"Keep, but no raise" 
-		informativeTextWithFormat:@"Do you really want to delete %d %@?", 
-					   [selectedPeople count],
-					   ([selectedPeople count] == 1)? @"person" : @"people"
+	NSAlert * alert = [NSAlert alertWithMessageText:NSLocalizedString(@"DELETE", @"Delete")
+									defaultButton:NSLocalizedString(@"DELETE", @"Delete") 
+									alternateButton:NSLocalizedString(@"CANCEL", @"Cancel") 
+										otherButton:NSLocalizedString(@"KEEP_NO_RAISE", @"Keep, but no raise")
+						  informativeTextWithFormat:NSLocalizedString(@"SURE_DELETE", @"Do you really want to delete %d %@?"), 
+							[selectedPeople count],
+							([selectedPeople count] == 1)? NSLocalizedString(@"PERSON", @"person") : NSLocalizedString(@"PEOPLE", @"people")
 					   ];
 	NSLog(@"Starting alert sheet.");
 	[alert beginSheetModalForWindow:[tableView window] modalDelegate:self didEndSelector:@selector(alertEnded:code:context:) contextInfo:NULL];
