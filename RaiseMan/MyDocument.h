@@ -18,8 +18,11 @@
 }
 
 - (IBAction)createEmployee:(id)sender;
+- (IBAction)removeEmployee:(id)sender;
 - (void)setEmployees:(NSMutableArray *)a;
 - (void)insertObject:(Person *)p inEmployeesAtIndex:(int)index;
 - (void)removeObjectFromEmployeesAtIndex:(int)index;
+- (void)startObservingPerson:(Person *)p;
+- (void)stopObservingPerson:(Person *)p;
 
 @end
