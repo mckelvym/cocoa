@@ -69,4 +69,14 @@
 	[super dealloc];
 }
 
+// Creating views programmatically
+/*
+NSView *superview = [window contentView]; 
+NSRect frame = NSMakeRect(10, 10, 200, 100); 
+NSButton *button = [[NSButton alloc] initWithFrame:frame]; 
+[button setTitle:@"Click me!"]; 
+[superview addSubview:button]; 
+[button release];
+ */
+
 @end
