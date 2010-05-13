@@ -32,6 +32,7 @@
 		[bezierPath lineToPoint:p];
 	}
 	[bezierPath closePath];
+	opacity = 1.0;
 	
 	return self;
 }
@@ -51,6 +52,18 @@
 	// Draw the path in white
 	[[NSColor whiteColor] set];
 	[bezierPath stroke];
+	
+	if (image)
+	{
+		NSRect imageRect;
+		imageRect.origin = NSZeroPoint;
+		imageRect.size = [image size];
+		NSRect drawingRect = imageRect;
+		[image drawInRect:drawingRect 
+				fromRect:imageRect 
+				operation:NSCompositeSourceOver 
+				 fraction:opacity];
+	}
 }
 
 - (NSPoint)randomPoint
@@ -66,6 +79,7 @@
 - (void)dealloc
 {
 	[bezierPath release];
+	[image release];
 	[super dealloc];
 }
 
@@ -78,5 +92,44 @@ NSButton *button = [[NSButton alloc] initWithFrame:frame];
 [superview addSubview:button]; 
 [button release];
  */
+
+#pragma mark Events
+
+- (void)mouseDown:(NSEvent *)event
+{
+	NSLog(@"mouseDown: %d", [event clickCount]);
+}
+
+- (void)mouseDragged:(NSEvent *)event
+{
+	NSPoint p = [event locationInWindow];
+	NSLog(@"mouseDragged: %@", NSStringFromPoint(p));
+}
+
+- (void)mouseUp:(NSEvent *)event
+{
+	NSLog(@"mouseUp:");
+}
+
+#pragma mark Accessors
+
+- (void)setImage:(NSImage *)newImage
+{
+	[newImage retain];
+	[image release];
+	image = newImage;
+	[self setNeedsDisplay:YES];
+}
+
+- (float)opacity
+{
+	return opacity;
+}
+
+- (void)setOpacity:(float)x
+{
+	opacity = x;
+	[self setNeedsDisplay:YES];
+}
 
 @end
