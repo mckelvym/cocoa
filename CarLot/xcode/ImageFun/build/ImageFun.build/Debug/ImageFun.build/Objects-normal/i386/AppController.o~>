@@ -1,5 +1,0 @@
-In file included from /Users/mark/xcode/ImageFun/AppController.m:9:
-/Users/mark/xcode/ImageFun/AppController.h:12: error: syntax error before 'AT_NAME' token
-/Users/mark/xcode/ImageFun/AppController.h:16: fatal error: method definition not in @implementation context
-compilation terminated.
-{standard input}:32:FATAL:.abort  detected.  Assembly stopping.
