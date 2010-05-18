@@ -201,8 +201,6 @@
 	return string;
 }
 
-#pragma mark Actions
-
 - (IBAction)savePDF:(id)sender
 {
 	NSSavePanel *panel = [NSSavePanel savePanel];
@@ -213,6 +211,58 @@
 					modalDelegate:self 
 				   didEndSelector:@selector(didEnd:returnCode:contextInfo:)
 					  contextInfo:NULL];
+}
+
+- (IBAction)cut:(id)sender
+{
+	[self copy:sender];
+	[self setString:@""];
+}
+	
+- (IBAction)copy:(id)sender
+{
+	[self writeToPasteboard:[NSPasteboard generalPasteboard]];
+}
+
+- (IBAction)paste:(id)sender
+{
+	if (![self readFromPasteboard:[NSPasteboard generalPasteboard]])
+		NSBeep();
+}
+
+- (void)writeToPasteboard:(NSPasteboard *)board
+{
+	// Declare types
+	[board declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:self];
+	
+	// Copy data to the pasteboard
+	[board setString:string forType:NSStringPboardType];
+	
+	// To lazily copy the data, implement the following method:
+	// - (void)pasteboard:(NSPasteboard *)sender provideDataForType:(NSString *)type
+	
+	// If you implement this method, it will be called when you are no longer responsible
+	// for keeping a snapshot:
+	// - (void)pasteboardChangedOwner:(NSPasteboard *)sender;
+}
+
+- (BOOL)readFromPasteboard:(NSPasteboard *)board
+{
+	// Is there a string on the pasteboard?
+	NSArray * types = [board types];
+	if ([types containsObject:NSStringPboardType])
+	{
+		// Read the string from the pasteboard
+		NSString * value = [board stringForType:NSStringPboardType];
+		
+		// Since the view can only handle one letter, behave accordingly
+		if ([value length] == 1)
+		{
+			[self setString:value];
+			return YES;
+		}
+	}
+	return NO;
 }
 
 @end

@@ -21,6 +21,10 @@
 - (void)prepareAttributes;
 - (void)drawStringCenteredIn:(NSRect) r;
 - (IBAction)savePDF:(id)sender;
+- (IBAction)cut:(id)sender;
+- (IBAction)copy:(id)sender;
+- (IBAction)paste:(id)sender;
 - (void)didEnd:(NSSavePanel *)sheet returnCode:(int)code contextInfo:(void *)contextInfo;
-
+- (void)writeToPasteboard:(NSPasteboard *)board;
+- (BOOL)readFromPasteboard:(NSPasteboard *)board;
 @end
