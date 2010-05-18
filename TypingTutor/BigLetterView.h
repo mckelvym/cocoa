@@ -13,7 +13,14 @@
 	NSColor *backgroundColor;
 	NSString *string;
 	BOOL isHighlighted;
+	NSMutableDictionary * attributes;
 }
 @property (retain, readwrite) NSColor * backgroundColor;
 @property (copy, readwrite) NSString * string;
+
+- (void)prepareAttributes;
+- (void)drawStringCenteredIn:(NSRect) r;
+- (IBAction)savePDF:(id)sender;
+- (void)didEnd:(NSSavePanel *)sheet returnCode:(int)code contextInfo:(void *)contextInfo;
+
 @end
