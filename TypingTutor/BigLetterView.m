@@ -7,7 +7,14 @@
 //
 
 #import "BigLetterView.h"
+#import "FirstLetter.h"
 
+// Declare private methods using a category
+@interface BigLetterView ()
+
+- (void)somePrivateMethod;
+
+@end
 
 @implementation BigLetterView
 
@@ -255,12 +262,8 @@
 		// Read the string from the pasteboard
 		NSString * value = [board stringForType:NSStringPboardType];
 		
-		// Since the view can only handle one letter, behave accordingly
-		if ([value length] == 1)
-		{
-			[self setString:value];
-			return YES;
-		}
+		[self setString:[value BNR_firstLetter]];
+		return YES;
 	}
 	return NO;
 }
