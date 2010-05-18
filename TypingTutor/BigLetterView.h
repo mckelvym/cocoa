@@ -14,6 +14,8 @@
 	NSString *string;
 	BOOL isHighlighted;
 	NSMutableDictionary * attributes;
+	// For drag-and-drop
+	NSEvent * mouseDownEvent;
 }
 @property (retain, readwrite) NSColor * backgroundColor;
 @property (copy, readwrite) NSString * string;

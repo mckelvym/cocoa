@@ -30,6 +30,7 @@
 	isHighlighted = NO;
 	
 	[[self window] setAcceptsMouseMovedEvents:YES];
+	[self registerForDraggedTypes:[NSArray arrayWithObject:NSStringPboardType]];
 	return self;
 }
 
@@ -66,14 +67,27 @@
 	[attributes release];
 	[backgroundColor release];
 	[string release];
+	[mouseDownEvent release];
 	[super dealloc];
 }
 
 - (void)drawRect:(NSRect)rect
 {
 	NSRect bounds = [self bounds];
-	[backgroundColor set];
-	[NSBezierPath fillRect:bounds];
+	
+	// Draw gradient background if highlighted
+	if (isHighlighted)
+	{
+		NSGradient * gradient = [[NSGradient alloc] initWithStartingColor:[NSColor whiteColor] endingColor:backgroundColor];
+		[gradient drawInRect:bounds relativeCenterPosition:NSZeroPoint];
+		[gradient release];
+	}
+	else
+	{
+		[backgroundColor set];
+		[NSBezierPath fillRect:bounds];
+	}
+	
 	[self drawStringCenteredIn:bounds];
 	
 	// Am I the window's first responder?
@@ -266,6 +280,132 @@
 		return YES;
 	}
 	return NO;
+}
+
+// Indicates that this view can be a drag source
+// This method is called twice, once for isLocal = YES, and isLocal = NO
+- (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL)isLocal
+{
+	return NSDragOperationCopy | NSDragOperationDelete;
+}
+
+- (void)mouseDown:(NSEvent *)event
+{
+	[event retain];
+	[mouseDownEvent release];
+	mouseDownEvent = event;
+}
+
+- (void)mouseDragged:(NSEvent *)event
+{
+	NSPoint down = [mouseDownEvent locationInWindow];
+	NSPoint drag = [event locationInWindow];
+	float distance = hypot(down.x - drag.x, down.y - drag.y);
+	if (distance < 3)
+		return;
+	
+	// Is the string of zero length?
+	if ([string	 length] == 0)
+		return;
+	
+	// Get the size of the string
+	NSSize s = [string sizeWithAttributes:attributes];
+	
+	// Create the image that will be dragged
+	NSImage * anImage = [[NSImage alloc] initWithSize:s];
+	
+	// Create a rect in which you will draw the letter in the image
+	NSRect imageBounds;
+	imageBounds.origin = NSZeroPoint;
+	imageBounds.size = s;
+	
+	// Draw the letter on the image
+	[anImage lockFocus];
+	[self drawStringCenteredIn:imageBounds];
+	[anImage unlockFocus];
+	
+	// Get the location of the mouseDown event
+	NSPoint p = [self convertPoint:down fromView:nil];
+	
+	// Drag from the center of the image
+	p.x = p.x - s.width / 2;
+	p.y = p.y - s.height / 2;
+	
+	// Get the pasteboard
+	NSPasteboard * board = [NSPasteboard pasteboardWithName:NSDragPboard];
+	
+	// Put the string on the pasteboard
+	[self writeToPasteboard:board];
+	
+	// Start the drag
+	[self dragImage:anImage at:p offset:NSMakeSize(0, 0) event:mouseDownEvent pasteboard:board source:self slideBack:YES];
+	[anImage release];
+	
+	// When the drop occurs, the drag source will be notificed if you implement the following method:
+	// - (void)draggedImage:(NSImage *)image endedAt:(NSPoint)screenPoint operation:(NSDragOperation)operation;
+}
+
+- (void)draggedImage:(NSImage *)image endedAt:(NSPoint)screenPoint operation:(NSDragOperation)operation
+{
+	if (operation == NSDragOperationDelete)
+	{
+		[self setString:@""];
+	}
+}
+
+#pragma mark Dragging Destination
+
+- (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender
+{
+	NSLog(@"Dragging entered.");
+	if ([sender draggingSource] == self)
+		return NSDragOperationNone;
+	
+	isHighlighted = YES;
+	[self setNeedsDisplay:YES];
+	return NSDragOperationCopy;
+}
+
+- (NSDragOperation)draggingUpdated:(id <NSDraggingInfo>)sender
+{
+	NSDragOperation operation = [sender draggingSourceOperationMask];
+	NSLog(@"operation mask = %d", operation);
+	if ([sender draggingSource] == self)
+	{
+		return NSDragOperationNone;
+	}
+	return NSDragOperationCopy;
+}
+
+- (void)draggingExited:(id <NSDraggingInfo>)sender
+{
+	NSLog(@"Dragging exited.");
+	isHighlighted = NO;
+	[self setNeedsDisplay:YES];
+}
+
+- (BOOL)prepareForDragOperation:(id <NSDraggingInfo>)sender
+{
+	return YES;
+}
+
+- (BOOL)performDragOperation:(id <NSDraggingInfo>)sender
+{
+	NSPasteboard * board = [sender draggingPasteboard];
+	if (![self readFromPasteboard:board])
+	{
+		NSLog(@"Error: Could not read from dargging pasteboard.");
+		return NO;
+	}
+	
+	return YES;
+}
+
+- (void)concludeDragOperation:(id <NSDraggingInfo>)sender
+{
+	NSLog(@"Conclude drag operation.");
+	isHighlighted = NO;
+	[self setNeedsDisplay:YES];
 }
 
 @end
