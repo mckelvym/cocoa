@@ -12,6 +12,7 @@
 @interface AppController : NSObject {
 	IBOutlet BigLetterView * source;
 	IBOutlet BigLetterView * destination;
+	IBOutlet NSWindow * speedSheet;
 	
 	NSArray * letters;
 	int lastIndex;
@@ -23,9 +24,12 @@
 	// [NSApp currentEvent]
 	NSTimer * timer;
 	int count;
+	int stepSize;
 }
 
 - (IBAction)stopAndGo:(id)sender;
+- (IBAction)showSpeedSheet:(id)sender;
+- (IBAction)endSpeedSheet:(id)sender;
 - (void)incrementCount;
 - (void)resetCount;
 - (void)showAnotherLetter;
