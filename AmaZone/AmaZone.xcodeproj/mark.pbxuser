@@ -1,0 +1,59 @@
+// !$*UTF8*$!
+{
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 4D10B20111A61CE2000D9AE7 /* AmaZone */;
+		activeTarget = 8D1107260486CEB800E47090 /* AmaZone */;
+		codeSenseManager = 4D10B20B11A61D00000D9AE7 /* Code sense */;
+		executables = (
+			4D10B20111A61CE2000D9AE7 /* AmaZone */,
+		);
+		perUserDictionary = {
+			PBXPerProjectTemplateStateSaveDate = 296099042;
+			PBXWorkspaceStateSaveDate = 296099042;
+		};
+		sourceControlManager = 4D10B20A11A61D00000D9AE7 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	4D10B20111A61CE2000D9AE7 /* AmaZone */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = AmaZone;
+		sourceDirectories = (
+		);
+	};
+	4D10B20A11A61D00000D9AE7 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	4D10B20B11A61D00000D9AE7 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	8D1107260486CEB800E47090 /* AmaZone */ = {
+		activeExec = 0;
+		executables = (
+			4D10B20111A61CE2000D9AE7 /* AmaZone */,
+		);
+	};
+}
