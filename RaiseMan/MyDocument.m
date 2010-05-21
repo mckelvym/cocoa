@@ -8,6 +8,7 @@
 
 #import "PreferenceController.h"
 #import "Person.h"
+#import "PeopleView.h"
 #import "MyDocument.h"
 
 @implementation MyDocument
@@ -204,7 +205,7 @@ context:(void *)context
 	// For localization:
 	//NSString * deleteString;
 	//deleteString = [[NSBundle mainBundle] localizedStringForKey:@"DELETE" value:@"Delete?" table:nil];
-		
+	
 	NSArray * selectedPeople = [employeeController selectedObjects];
 	NSAlert * alert = [NSAlert alertWithMessageText:NSLocalizedString(@"DELETE", @"Delete")
 									defaultButton:NSLocalizedString(@"DELETE", @"Delete") 
@@ -322,4 +323,14 @@ context:(void *)context
 	NSColor * color = [[note userInfo] objectForKey:@"color"];
 	[tableView setBackgroundColor:color];
 }
+
+- (NSPrintOperation *)printOperationWithSettings:(NSDictionary *)ps error:(NSError **)e
+{
+	PeopleView * view = [[PeopleView alloc] initWithPeople:employees];
+	NSPrintInfo * printInfo = [self printInfo];
+	NSPrintOperation * printOp = [NSPrintOperation printOperationWithView:view printInfo:printInfo];
+	[view release];
+	return printOp;
+}
+
 @end
