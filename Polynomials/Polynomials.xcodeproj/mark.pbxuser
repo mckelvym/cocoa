@@ -1,0 +1,247 @@
+// !$*UTF8*$!
+{
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 4DBD45C211B40D22000DCDB7 /* Polynomials */;
+		activeTarget = 8D1107260486CEB800E47090 /* Polynomials */;
+		addToTargets = (
+			8D1107260486CEB800E47090 /* Polynomials */,
+		);
+		codeSenseManager = 4DBD45C811B40D40000DCDB7 /* Code sense */;
+		executables = (
+			4DBD45C211B40D22000DCDB7 /* Polynomials */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					341,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					301,
+					60,
+					20,
+					48.16259765625,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 297019928;
+			PBXWorkspaceStateSaveDate = 297019928;
+		};
+		perUserProjectItems = {
+			4D3F5DF611B42E0D00E1CB83 /* PBXTextBookmark */ = 4D3F5DF611B42E0D00E1CB83 /* PBXTextBookmark */;
+			4D3F5DF711B42E0D00E1CB83 /* PBXTextBookmark */ = 4D3F5DF711B42E0D00E1CB83 /* PBXTextBookmark */;
+			4D3F5DF811B42E0D00E1CB83 /* PBXTextBookmark */ = 4D3F5DF811B42E0D00E1CB83 /* PBXTextBookmark */;
+			4D3F5DF911B42E0D00E1CB83 /* PBXTextBookmark */ = 4D3F5DF911B42E0D00E1CB83 /* PBXTextBookmark */;
+			4DBD45E811B4149D000DCDB7 /* PBXTextBookmark */ = 4DBD45E811B4149D000DCDB7 /* PBXTextBookmark */;
+			4DBD45E911B4149D000DCDB7 /* PBXTextBookmark */ = 4DBD45E911B4149D000DCDB7 /* PBXTextBookmark */;
+			4DBD45EE11B4149D000DCDB7 /* PBXTextBookmark */ = 4DBD45EE11B4149D000DCDB7 /* PBXTextBookmark */;
+			4DBD45EF11B4149D000DCDB7 /* PBXTextBookmark */ = 4DBD45EF11B4149D000DCDB7 /* PBXTextBookmark */;
+			4DBD460F11B42729000DCDB7 /* PBXTextBookmark */ = 4DBD460F11B42729000DCDB7 /* PBXTextBookmark */;
+			4DBD461111B42729000DCDB7 /* PBXTextBookmark */ = 4DBD461111B42729000DCDB7 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 4DBD45C711B40D40000DCDB7 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	4D3F5DF611B42E0D00E1CB83 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4DBD45E011B41257000DCDB7 /* PolynomialView.m */;
+		name = "PolynomialView.m: 213";
+		rLen = 0;
+		rLoc = 5513;
+		rType = 0;
+		vrLen = 266;
+		vrLoc = 5249;
+	};
+	4D3F5DF711B42E0D00E1CB83 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4DBD45DD11B40DED000DCDB7 /* Polynomial.m */;
+		name = "Polynomial.m: 110";
+		rLen = 0;
+		rLoc = 2509;
+		rType = 0;
+		vrLen = 274;
+		vrLoc = 2236;
+	};
+	4D3F5DF811B42E0D00E1CB83 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4DBD45E011B41257000DCDB7 /* PolynomialView.m */;
+		name = "PolynomialView.m: 213";
+		rLen = 0;
+		rLoc = 5513;
+		rType = 0;
+		vrLen = 266;
+		vrLoc = 5249;
+	};
+	4D3F5DF911B42E0D00E1CB83 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4DBD45DD11B40DED000DCDB7 /* Polynomial.m */;
+		name = "Polynomial.m: 110";
+		rLen = 0;
+		rLoc = 2509;
+		rType = 0;
+		vrLen = 399;
+		vrLoc = 1839;
+	};
+	4DBD45C211B40D22000DCDB7 /* Polynomials */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = Polynomials;
+		sourceDirectories = (
+		);
+	};
+	4DBD45C711B40D40000DCDB7 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	4DBD45C811B40D40000DCDB7 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	4DBD45DC11B40DED000DCDB7 /* Polynomial.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {519, 322}}";
+			sepNavSelRange = "{383, 0}";
+			sepNavVisRange = "{39, 350}";
+		};
+	};
+	4DBD45DD11B40DED000DCDB7 /* Polynomial.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {606, 1568}}";
+			sepNavSelRange = "{2509, 0}";
+			sepNavVisRange = "{1839, 399}";
+		};
+	};
+	4DBD45DF11B41257000DCDB7 /* PolynomialView.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {519, 322}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{43, 377}";
+		};
+	};
+	4DBD45E011B41257000DCDB7 /* PolynomialView.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {642, 3038}}";
+			sepNavSelRange = "{5513, 0}";
+			sepNavVisRange = "{5249, 266}";
+		};
+	};
+	4DBD45E811B4149D000DCDB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4DBD45DC11B40DED000DCDB7 /* Polynomial.h */;
+		name = "Polynomial.h: 17";
+		rLen = 106;
+		rLoc = 276;
+		rType = 0;
+		vrLen = 364;
+		vrLoc = 20;
+	};
+	4DBD45E911B4149D000DCDB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4DBD45DD11B40DED000DCDB7 /* Polynomial.m */;
+		name = "Polynomial.m: 32";
+		rLen = 0;
+		rLoc = 795;
+		rType = 0;
+		vrLen = 471;
+		vrLoc = 325;
+	};
+	4DBD45EE11B4149D000DCDB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4DBD45DF11B41257000DCDB7 /* PolynomialView.h */;
+		name = "PolynomialView.h: 15";
+		rLen = 92;
+		rLoc = 257;
+		rType = 0;
+		vrLen = 341;
+		vrLoc = 0;
+	};
+	4DBD45EF11B4149D000DCDB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4DBD45E011B41257000DCDB7 /* PolynomialView.m */;
+		name = "PolynomialView.m: 18";
+		rLen = 0;
+		rLoc = 427;
+		rType = 0;
+		vrLen = 366;
+		vrLoc = 24;
+	};
+	4DBD460F11B42729000DCDB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4DBD45DC11B40DED000DCDB7 /* Polynomial.h */;
+		name = "Polynomial.h: 21";
+		rLen = 0;
+		rLoc = 383;
+		rType = 0;
+		vrLen = 350;
+		vrLoc = 39;
+	};
+	4DBD461111B42729000DCDB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4DBD45DF11B41257000DCDB7 /* PolynomialView.h */;
+		name = "PolynomialView.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 377;
+		vrLoc = 43;
+	};
+	8D1107260486CEB800E47090 /* Polynomials */ = {
+		activeExec = 0;
+		executables = (
+			4DBD45C211B40D22000DCDB7 /* Polynomials */,
+		);
+	};
+}
