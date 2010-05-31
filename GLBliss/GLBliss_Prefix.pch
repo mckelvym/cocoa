@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'GLBliss' target in the 'GLBliss' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

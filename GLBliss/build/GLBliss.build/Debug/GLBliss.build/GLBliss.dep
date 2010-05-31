@@ -1,0 +1,9 @@
+7b68d587860ea9672de0ffc2af71f003 8169088f8f55e5b9a514cfb0f18dfab7 ffffffffffffffffffffffffffffffff 102 /Users/mark/xcode/GLBliss/build/Debug/GLBliss.app
+79b3b7bfae7258aa83e3154e6c80a292 217d62ad6d1ee70b79869da88fc7b38b ffffffffffffffffffffffffffffffff 22792 /Users/mark/xcode/GLBliss/build/Debug/GLBliss.app/Contents/MacOS/GLBliss
+e5761ec03f57bf5f9bb05bd03c7a6ab8 217f14bfe473bd71c4451ce31a3e5abd ffffffffffffffffffffffffffffffff 24324 /Users/mark/xcode/GLBliss/build/GLBliss.build/Debug/GLBliss.build/Objects-normal/i386/GLBlissView.o
+e5761ec07c3240a29bb05bd03c7a084c 58cca3000b40bc7b47a609ad76a025f5 ffffffffffffffffffffffffffffffff 4808 /Users/mark/xcode/GLBliss/build/GLBliss.build/Debug/GLBliss.build/Objects-normal/i386/main.o
+00000000031836400000000000006fab e5761ec07c3240a29bb05bd03c7a0820 ffffffffffffffffffffffffffffffff 34644756 /var/folders/Rm/Rm4H-5nDGEW+nbgUCOdAOU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GLBliss_Prefix-fglbagbyglernjdmjbnvuhzbjcnt/GLBliss_Prefix.pch.gch
+000000004c03f9fb0000000000021c94 a430436e93bacb7765d155ceb5748d0d ffffffffffffffffffffffffffffffff 31066 /Users/mark/xcode/GLBliss/build/Debug/GLBliss.app/Contents/Resources/English.lproj/MainMenu.nib
+000000004c03f68b000000000000005c 879643fbd6d8d2c1b25422eaf94070df ffffffffffffffffffffffffffffffff 92 /Users/mark/xcode/GLBliss/build/Debug/GLBliss.app/Contents/Resources/English.lproj/InfoPlist.strings
+00000000000000000000000000000000 25641cb78b1553ce6f58bf6db9400e46 ffffffffffffffffffffffffffffffff 8 /Users/mark/xcode/GLBliss/build/Debug/GLBliss.app/Contents/PkgInfo
+00000000000000000000000000000000 25641cb78b1553ce6f58bf6db9400e46 ffffffffffffffffffffffffffffffff 769 /Users/mark/xcode/GLBliss/build/Debug/GLBliss.app/Contents/Info.plist
